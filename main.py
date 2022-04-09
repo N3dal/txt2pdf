@@ -75,13 +75,17 @@ def file_exist(file_name: str):
     return file_name in listdir(getcwd())
 
 
-def txt2pdf(file_path: str = None):
+def txt2pdf(file_name: str = None):
     """convert any text  => *.txt, to pdf"""
 
-    if file_path is None:
+    # guard condition.
+    if not file_exist(file_name):
+        return
+
+    if file_name is None:
         raise Exception("FilePathError: please enter the file path.")
 
-    with open(file_path, "r") as file:
+    with open(f"{getcwd()}/{file_name}", "r") as file:
         text = file.read()
 
     # create pdf object.
@@ -103,7 +107,7 @@ def txt2pdf(file_path: str = None):
 
 
 def main():
-    txt2pdf("./test.txt")
+    txt2pdf("test.txt")
 
 
 if __name__ == '__main__':
