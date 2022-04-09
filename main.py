@@ -53,28 +53,15 @@ def separate2lines(string: str, max_char: int = 64):
     temp_string, counter = "", 0
 
     for char in text:
+
         if counter == max_char-1:
             lines.append(temp_string + char + "\n")
             temp_string = ""
             counter = 0
             continue
+
         temp_string += char
         counter += 1
-
-    # loopa = len(text) % max_char
-    # loopb = len(text) // max_char
-    # print(len(text))
-    # print(loopa)
-    # print(loopb)
-
-    # lines = []
-    # for index, num in enumerate(range(1, loopb+1)):
-    #     # print(f"{max_char*index}:{max_char*num}")
-    #     lines.append(text[max_char*index:max_char*num])
-
-    # # and then append the remain chars.
-    # lines.append(text[max_char*num:max_char*num+loopa])
-    # print(lines)
 
     return lines
 
@@ -98,14 +85,12 @@ def txt2pdf(file_path: str = None):
     text_lines = separate2lines(text, 90)
     # print(text_lines)
 
-    # for index, line in enumerate(text_lines):
-    #     pdf.cell(0, 10, txt=line, ln=1, align="L")
+    for index, line in enumerate(text_lines):
+        pdf.cell(0, 10, txt=line, ln=1, align="L")
 
-    # # help(pdf.cell)
+    pdf.output("./test.pdf")
 
-    # pdf.output("./test.pdf")
-
-    # pdf.close()
+    pdf.close()
 
 
 def main():
