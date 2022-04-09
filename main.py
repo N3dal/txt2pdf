@@ -14,7 +14,7 @@
 # -----------------------------------------------------------------
 
 from os import system
-from os import name as os_name
+from os import name as OS_NAME
 from fpdf import FPDF
 from sys import argv
 
@@ -22,7 +22,7 @@ from sys import argv
 def clear():
     """wipe the terminal screen."""
 
-    if os_name == "posix":
+    if OS_NAME == "posix":
         # *nix machines.
         system("clear")
 
