@@ -16,6 +16,7 @@
 from os import system
 from os import name as os_name
 from fpdf import FPDF
+from sys import argv
 
 
 def clear():
@@ -31,6 +32,13 @@ def clear():
 
 
 clear()
+
+
+def get_args():
+    """return all the arguments that pass,
+    to the program except the program name."""
+
+    return argv[1:]
 
 
 def separate2lines(string: str, max_char: int = 64):
