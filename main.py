@@ -101,13 +101,18 @@ def txt2pdf(file_name: str = None):
     for index, line in enumerate(text_lines):
         pdf.cell(0, 10, txt=line, ln=1, align="L")
 
-    pdf.output("./test.pdf")
+    pdf.output(f"./{file_name}.pdf")
 
     pdf.close()
 
 
 def main():
-    txt2pdf("test.txt")
+
+    # get all the args=>file-names.
+    files = get_args()
+
+    for file in files:
+        txt2pdf(file)
 
 
 if __name__ == '__main__':
