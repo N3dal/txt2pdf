@@ -101,7 +101,9 @@ def txt2pdf(file_name: str = None):
     for index, line in enumerate(text_lines):
         pdf.cell(0, 10, txt=line, ln=1, align="L")
 
-    pdf.output(f"./{file_name}.pdf")
+    # make sure to split the file from the dot and get the name only.
+    # in simple words remove the file extension.
+    pdf.output(f"./{file_name.split('.')[0]}.pdf")
 
     pdf.close()
 
