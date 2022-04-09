@@ -15,6 +15,8 @@
 
 from os import system
 from os import name as OS_NAME
+from os import getcwd
+from os import listdir
 from fpdf import FPDF
 from sys import argv
 
@@ -64,6 +66,13 @@ def separate2lines(string: str, max_char: int = 64):
         counter += 1
 
     return lines
+
+
+def file_exist(file_name: str):
+    """checkout if the given file name is exist,
+    in the working dir or not."""
+
+    return file_name in listdir(getcwd())
 
 
 def txt2pdf(file_path: str = None):
