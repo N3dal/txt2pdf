@@ -64,7 +64,9 @@ def separate2lines(string: str, max_char: int = 64):
 
         temp_string += char
         counter += 1
-
+    
+    lines.append(temp_string)
+    
     return lines
 
 
