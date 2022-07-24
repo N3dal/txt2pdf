@@ -115,6 +115,8 @@ def txt2pdf(file_name: str = None):
 
     pdf.close()
 
+    return None
+
 
 def main():
 
