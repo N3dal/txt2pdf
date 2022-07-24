@@ -25,12 +25,18 @@ def clear():
     """wipe the terminal screen."""
 
     if OS_NAME == "posix":
-        # *nix machines.
+        # for *nix machines.
         system("clear")
 
-    else:
-        # windows machines.
+    elif OS_NAME == "windows":
         system("cls")
+
+    else:
+        # for other os in the world.
+        # system("your-command")
+        pass
+
+    return None
 
 
 clear()
@@ -64,9 +70,9 @@ def separate2lines(string: str, max_char: int = 64):
 
         temp_string += char
         counter += 1
-    
+
     lines.append(temp_string)
-    
+
     return lines
 
 
